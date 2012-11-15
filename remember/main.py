@@ -28,6 +28,8 @@ def text():
 
 @main.route('/__debug__')
 def debug():
+    items = []
+
     for qi in Memento.queue():
         items.append({'id': qi.memento.id, 'type': qi.threshold.name})
 

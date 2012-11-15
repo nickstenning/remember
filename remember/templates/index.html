@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>remember</title>
+    <style>
+      body {
+        font-family: Helvetica, sans-serif;
+        background: #efefef;
+        color: #222222;
+      }
+
+      .container {
+        width: 80%;
+        height: 80%;
+        margin: 0 auto;
+      }
+
+      form input, form textarea {
+        font-size: 1.5em;
+        font-family: PragmataPro, Menlo, Monaco, monospace;
+      }
+
+      form textarea {
+        width: 40em;
+        height: 10em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='container'>
+      {% for category, message in get_flashed_messages(with_categories=true) %}
+      <div class="alert alert-{{category}}">
+        <a class="close nounderline" data-dismiss="alert">×</a>
+        {{ message }}
+      </div>
+      {% endfor %} 
+      
+      <h1>remember</h1>
+      <form action='{{ url_for('.text') }}' method='post'>
+        <p><textarea name='memento_text' autofocus></textarea></p>
+        <p><input type='submit'></p>
+      </form>
+    </div>
+  </body>
+</html>

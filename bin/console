@@ -1,6 +1,12 @@
+#!/usr/bin/env python
+
 from IPython import embed
 
 import remember
+
+# Import useful things into namespace
+from remember import db
+from remember.memento import Memento
 
 def main():
     app = remember.create_app()

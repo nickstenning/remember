@@ -17,6 +17,7 @@ def configure(app):
     # Optional settings
     c.setdefault('SQLALCHEMY_DATABASE_URI', env.get('DATABASE_URL',
                                                     'sqlite:///%s/remember.db' % app.instance_path))
+    c.setdefault('SUPPRESS_SMS', env.get('SUPPRESS_SMS'))
 
     # Required settings
     c['SECRET_KEY']        = env['SECRET_KEY']

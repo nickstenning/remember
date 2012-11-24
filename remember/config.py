@@ -19,7 +19,10 @@ def configure(app):
                                                     'sqlite:///%s/remember.db' % app.instance_path))
 
     # Required settings
-    c['SECRET_KEY'] = env['SECRET_KEY']
+    c['SECRET_KEY']        = env['SECRET_KEY']
+    c['CLOCKWORK_API_KEY'] = env['CLOCKWORK_API_KEY']
+    c['CLOCKWORK_TO']      = env['CLOCKWORK_TO']
+    c['CLOCKWORK_FROM']    = env['CLOCKWORK_FROM']
 
 
 def configure_logging():

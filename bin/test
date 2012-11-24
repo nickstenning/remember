@@ -13,6 +13,9 @@ if __name__ == '__main__':
         'TESTING': 'True',
         'DATABASE_URL': 'sqlite:///:memory:',
         'SECRET_KEY': 'test-random-secret-key',
+        'CLOCKWORK_API_KEY': 'test-clockwork-api-key',
+        'CLOCKWORK_TO': '441234567890',
+        'CLOCKWORK_FROM': 'Remember (Test)'
     })
 
     nose.main()

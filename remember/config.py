@@ -1,8 +1,12 @@
 from os import environ as env
-import urlparse
+import logging
+
+DEFAULT_LOG_LEVEL = 'WARN'
+DEFAULT_LOG_FORMAT = '[%(name)s] [%(levelname)s] %(message)s'
 
 class ConfigError(Exception):
     pass
+
 
 def configure(app):
     c = app.config
@@ -16,6 +20,14 @@ def configure(app):
 
     # Required settings
     c['SECRET_KEY'] = env['SECRET_KEY']
+
+
+def configure_logging():
+    log_level = env.get('APP_LOG_LEVEL', DEFAULT_LOG_LEVEL).upper()
+    log_format = env.get('APP_LOG_FORMAT', DEFAULT_LOG_FORMAT)
+
+    logging.basicConfig(format=log_format, level=getattr(logging, log_level))
+
 
 def _switch(key, default=False):
     if key in env:
